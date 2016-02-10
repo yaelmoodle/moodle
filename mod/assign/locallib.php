@@ -4917,7 +4917,7 @@ class assign {
                                            $this->get_module_name(),
                                            $this->get_instance()->name,
                                            $this->is_blind_marking(),
-                                           $this->get_uniqueid_for_user($userfrom->id));
+                                           $this->get_uniqueid_for_user($userto->id));
     }
 
     /**
