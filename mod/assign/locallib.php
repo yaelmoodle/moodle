@@ -4906,6 +4906,12 @@ class assign {
                                       $messagetype,
                                       $eventtype,
                                       $updatetime) {
+	$uniqueid;
+        if($messagetype == 'gradersubmissionupdated') {
+                $uniqueid = $this->get_uniqueid_for_user($userfrom->id);
+        } else {
+                $uniqueid = $this->get_uniqueid_for_user($userto->id);
+        }
         self::send_assignment_notification($userfrom,
                                            $userto,
                                            $messagetype,
@@ -4917,7 +4923,7 @@ class assign {
                                            $this->get_module_name(),
                                            $this->get_instance()->name,
                                            $this->is_blind_marking(),
-                                           $this->get_uniqueid_for_user($userto->id));
+                                           $uniqueid);
     }
 
     /**
